@@ -20,8 +20,8 @@ jobs:
           file presentazione.pdf | grep -q ' PDF '
       - name: Commit files
         run: |
-          git config --local user.email "${{ github.event.comment.user.login }}"
-          git config --local user.name "${{ github.event.schedule.user.name }}"
+          git config --local user.email "l99fiamingo@gmail.com"
+          git config --local user.name "lorenzofiamingo"
           git commit -m "PDF compilato automaticamente" -a
       - name: Push changes
         uses: ad-m/github-push-action@master
