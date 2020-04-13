@@ -18,11 +18,15 @@ jobs:
       - name: Check pdf file
         run: |
           file presentazione.pdf | grep -q ' PDF '
-      - name: Commit files
-        run: |
-          git config --local user.email "l99fiamingo@gmail.com"
-          git config --local user.name "lorenzofiamingo"
-          git commit -m "PDF compilato automaticamente" -a
+      - uses: EndBug/add-and-commit@v4
+        with:
+          add: 'presentazione.pdf'
+          author_name: lorenzofiamingo
+          author_email: l99fiamingo@gmail.com
+          message: 'Generato automaticamente'
+          #remove: "./dir/old_file.js"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
