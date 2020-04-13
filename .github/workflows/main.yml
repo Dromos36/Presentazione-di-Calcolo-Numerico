@@ -14,10 +14,10 @@ jobs:
       - name: Compile LaTeX document
         uses: dante-ev/latex-action@master
         with:
-          root_file: formule_campi.tex
+          root_file: presentazione.tex
       - name: Check pdf file
         run: |
-          file formule_campi.pdf | grep -q ' PDF '
+          file presentazione.pdf | grep -q ' PDF '
       - name: Commit files
         run: |
           git config --local user.email "${{ secrets.MY_EMAIL }}"
